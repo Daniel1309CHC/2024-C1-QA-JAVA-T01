@@ -44,14 +44,14 @@ public class Main {
         UsuarioOperaciones usuarioOp = new UsuarioOperaciones();
         usuarioOp.getUsuarios();
 
-        // Clase que permite operar sobre libros y novelas
-    /*    TipoLecturaOperaciones lecOp = new TipoLecturaOperaciones();*/
-
         // Clase que permite realizar operaciones sobre los libros
         LibroOperaciones libroOp = new LibroOperaciones();
 
         // Clase que permite realizar operaciones sobre la novela
         NovelaOperaciones novelaOp = new NovelaOperaciones();
+
+        // Clase que permite realizar operaciones sobre los prestamos
+        PrestamoOperaciones prestamoOp = new PrestamoOperaciones();
 
 
 
@@ -146,10 +146,11 @@ public class Main {
                                         switch (op) {
                                             case 1:
                                                 libroOp.listarLibrosDisponibles();
+                                                prestamoOp.realizarPrestamo(usuarioOp.getUsuarioActual(),TipoLectura.LIBRO);
                                                 break;
                                             case 2:
-                                                autorOp.listarAutores();
-                                                novelaOp.agregarNovela();
+                                                libroOp.listarLibrosDisponibles();
+                                                prestamoOp.realizarPrestamo(usuarioOp.getUsuarioActual(),TipoLectura.NOVELA);
                                                 break;
                                             case 3:
                                                 libroOp.ingresoactualizarLibro();
