@@ -28,4 +28,11 @@ public class Novela extends Lectura {
     public void setEdadSugerida(int edadSugerida) {
         this.edadSugerida = edadSugerida;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString()+ ", genero='" + genero + '\'' +
+                ", edad sugerida=" + edadSugerida;
+    }
+
 }

@@ -73,4 +73,14 @@ public abstract class Lectura {
         return autor;
     }
 
+    @Override
+    public String toString() {
+        return  "ID='" + ID +
+                ", titulo='" + titulo + '\'' +
+                ", cantidad de ejemplares=" + cantidadEjemplares +
+                ", cantidad prestados=" + cantidadPrestados +
+                ", cantidad disponible=" + cantidadDisponible +
+                ", autor=" + autor;
+    }
+
 }

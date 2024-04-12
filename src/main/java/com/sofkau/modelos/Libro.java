@@ -30,6 +30,11 @@ public class Libro extends Lectura {
         this.numPaginas = numPaginas;
     }
 
-    // Constructores, getters y setters
+
+    @Override
+    public String toString() {
+        return  super.toString() + ", areaConocimiento='" + areaConocimiento + '\'' +
+                ", numPaginas=" + numPaginas;
+    }
 
 }
