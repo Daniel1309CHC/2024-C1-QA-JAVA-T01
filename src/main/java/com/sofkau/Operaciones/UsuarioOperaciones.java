@@ -41,13 +41,8 @@ public class UsuarioOperaciones {
         String query = String.format ("INSERT INTO Usuario (ID, Nombre, Correo, Contrasena, Rol, Documento, Fecha_nacimiento) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')", usuario.getID(),usuario.getNombre(),usuario.getCorreo(),usuario.getContrasena(),usuario.getRol(),usuario.getDocumento(),formato.format(usuario.getFechaNacimiento()));
         mySqlOperation.setSqlStatement(query);
         mySqlOperation.executeSqlStatementVoid();
-
-        // Validar si se cre el usuario
-        if(this.validarUsuario(usuario.getCorreo(),usuario.getContrasena())){
-            usuarios.put(usuario.getID(),usuario);
-            System.out.println("Ususario creado con exito");
-        }
-
+        usuarios.put(usuario.getID(),usuario);
+        System.out.println("Ususario creado con exito");
     }
 
     public void agregarUsuario(RolUsuario rol) throws IOException, ParseException, SQLException {

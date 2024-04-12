@@ -171,6 +171,21 @@ public class LibroOperaciones {
         actualizarLibro(libro);
     }
 
+    public void listarLibros() {
+        System.out.println("Lista de Libros:");
+        for (Libro libro : libros.values()) {
+            System.out.println(libro);
+        }
+    }
+
+    public void listarLibrosDisponibles(){
+        System.out.println("Lista de Libros Disponibles:");
+        for (Libro libro : libros.values()) {
+            if (libro.getCantidadDisponible() > 0) {
+                System.out.println(libro);
+            }
+        }
+    }
 
 
 

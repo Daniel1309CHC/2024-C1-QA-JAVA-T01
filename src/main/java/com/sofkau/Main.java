@@ -136,7 +136,29 @@ public class Main {
                                         break;
                                     }
                                     case "LECTOR" :{
-                                        System.out.println("455465");
+                                        System.out.println("OPCIONES");
+                                        System.out.println("1. Realizar prestamo novela");
+                                        System.out.println("2. Realizar prestamo libro");
+                                        System.out.println("3. Actualizar libros");
+                                        System.out.println("4. Actualizar novelas");
+                                        int op = Integer.parseInt(teclado.readLine());
+
+                                        switch (op) {
+                                            case 1:
+                                                libroOp.listarLibrosDisponibles();
+                                                break;
+                                            case 2:
+                                                autorOp.listarAutores();
+                                                novelaOp.agregarNovela();
+                                                break;
+                                            case 3:
+                                                libroOp.ingresoactualizarLibro();
+                                            case 4:
+                                                novelaOp.ingresoactualizarNovela();
+                                                break;
+                                            default:
+                                                System.out.println("Opción no reconocida");
+                                        }
                                         break;
                                     }
 
