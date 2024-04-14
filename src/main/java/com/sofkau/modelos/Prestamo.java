@@ -21,6 +21,9 @@ public class Prestamo {
         this.estado = estado;
     }
 
+    public Prestamo() {
+    }
+
     public String getID() {
         return ID;
     }

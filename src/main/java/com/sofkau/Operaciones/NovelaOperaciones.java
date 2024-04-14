@@ -151,7 +151,7 @@ public class NovelaOperaciones {
         actualizarNovela(novela);
     }
 
-    private void getNovelas() throws SQLException {
+    protected Map<String, Novela> getNovelas() throws SQLException {
         String query = "SELECT * FROM Novela";
         mySqlOperation.setSqlStatement(query);
         mySqlOperation.executeSqlStatement();
@@ -172,8 +172,26 @@ public class NovelaOperaciones {
             novela.setAutor(autor);
             novelas.put(novela.getID(), novela);
         }
+
+        return novelas;
     }
 
+    // Método para listar todas las novelas
+    public void listarNovelas() {
+        System.out.println("Lista de Novelas:");
+        for (Novela novela : novelas.values()) {
+            System.out.println(novela);
+        }
+    }
 
+    // Método para listar solo la información de las novelas disponibles
+    public void listarNovelasDisponibles() {
+        System.out.println("Lista de Novelas Disponibles:");
+        for (Novela novela : novelas.values()) {
+            if (novela.getCantidadDisponible() > 0) {
+                System.out.println(novela);
+            }
+        }
+    }
 
 }

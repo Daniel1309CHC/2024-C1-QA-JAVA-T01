@@ -1,7 +1,7 @@
 /*
 package com.sofkau.Operaciones;
 
-import com.sofkau.TipoLectura;
+import com.sofkau.enums.TipoLectura;
 import com.sofkau.integration.database.ConexionDatabase;
 import com.sofkau.integration.database.mysql.MySqlOperation;
 import com.sofkau.modelos.Autor;

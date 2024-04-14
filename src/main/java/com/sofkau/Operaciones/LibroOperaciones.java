@@ -48,7 +48,7 @@ public class LibroOperaciones {
     }
 
 
-    private void getLibros() throws SQLException {
+    protected Map<String, Libro> getLibros() throws SQLException {
         String query = "SELECT * FROM Libro";
         mySqlOperation.setSqlStatement(query);
         mySqlOperation.executeSqlStatement();
@@ -69,6 +69,8 @@ public class LibroOperaciones {
             libro.setAutor(autor);
             libros.put(libro.getID(), libro);
         }
+
+        return libros;
     }
 
 
@@ -171,6 +173,7 @@ public class LibroOperaciones {
         actualizarLibro(libro);
     }
 
+    // Lista info libros
     public void listarLibros() {
         System.out.println("Lista de Libros:");
         for (Libro libro : libros.values()) {
@@ -178,6 +181,7 @@ public class LibroOperaciones {
         }
     }
 
+    // Lista solo info de los libros disponibles
     public void listarLibrosDisponibles(){
         System.out.println("Lista de Libros Disponibles:");
         for (Libro libro : libros.values()) {

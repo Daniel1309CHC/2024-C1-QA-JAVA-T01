@@ -1,22 +1,16 @@
 package com.sofkau;
 
-import com.github.javafaker.Faker;
 import com.sofkau.Operaciones.*;
-import com.sofkau.integration.database.mysql.MySqlOperation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.security.spec.RSAOtherPrimeInfo;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
 
+import com.sofkau.enums.TipoLectura;
 import com.sofkau.integration.database.ConexionDatabase;
 import com.sofkau.modelos.Usuario;
-import com.sofkau.RolUsuario;
+import com.sofkau.enums.RolUsuario;
 
 
 public class Main {
@@ -32,7 +26,6 @@ public class Main {
 
         //Se abre la conexion
         ConexionDatabase.openConnection();
-
 
         // Clase que permite realizar operaciones sobre la clase autor
         AutorOperaciones autorOp = new AutorOperaciones();
@@ -53,12 +46,7 @@ public class Main {
         // Clase que permite realizar operaciones sobre los prestamos
         PrestamoOperaciones prestamoOp = new PrestamoOperaciones();
 
-
-
-
-
         RolUsuario rolUsuario;
-
 
         boolean a = true;
         int option;
@@ -111,7 +99,7 @@ public class Main {
                                         System.out.println("OPCIONES");
                                         System.out.println("1. Agregar libro");
                                         System.out.println("2. Agregar novela");
-                                        System.out.println("3. Actualizar libros");
+                                        System.out.println("3. Actualizar prestamo por correo");
                                         System.out.println("4. Actualizar novelas");
 
                                         System.out.println("3: Salir");
@@ -137,8 +125,8 @@ public class Main {
                                     }
                                     case "LECTOR" :{
                                         System.out.println("OPCIONES");
-                                        System.out.println("1. Realizar prestamo novela");
-                                        System.out.println("2. Realizar prestamo libro");
+                                        System.out.println("1. Realizar prestamo libro");
+                                        System.out.println("2. Realizar prestamo novela");
                                         System.out.println("3. Actualizar libros");
                                         System.out.println("4. Actualizar novelas");
                                         int op = Integer.parseInt(teclado.readLine());
@@ -146,10 +134,10 @@ public class Main {
                                         switch (op) {
                                             case 1:
                                                 libroOp.listarLibrosDisponibles();
-                                                prestamoOp.realizarPrestamo(usuarioOp.getUsuarioActual(),TipoLectura.LIBRO);
+                                                prestamoOp.realizarPrestamo(usuarioOp.getUsuarioActual(), TipoLectura.LIBRO);
                                                 break;
                                             case 2:
-                                                libroOp.listarLibrosDisponibles();
+                                                novelaOp.listarNovelasDisponibles();
                                                 prestamoOp.realizarPrestamo(usuarioOp.getUsuarioActual(),TipoLectura.NOVELA);
                                                 break;
                                             case 3:

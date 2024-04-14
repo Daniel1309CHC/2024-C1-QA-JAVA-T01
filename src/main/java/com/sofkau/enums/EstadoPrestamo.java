@@ -1,4 +1,4 @@
-package com.sofkau;
+package com.sofkau.enums;
 
 public enum EstadoPrestamo {
     SOLICITADO,

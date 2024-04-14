@@ -1,6 +1,6 @@
 package com.sofkau.Operaciones;
 
-import com.sofkau.RolUsuario;
+import com.sofkau.enums.RolUsuario;
 import com.sofkau.integration.database.ConexionDatabase;
 import com.sofkau.integration.database.mysql.MySqlOperation;
 import com.sofkau.modelos.Usuario;
@@ -8,14 +8,11 @@ import com.sofkau.modelos.Usuario;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import  com.sofkau.Operaciones.CommonOperacion;
 
 public class UsuarioOperaciones {
 
@@ -111,6 +108,29 @@ public class UsuarioOperaciones {
     public Usuario getUsuarioActual(){
         return this.usuarioActual;
     }
+
+    public Usuario buscarUsuarioCorreo(String correo) {
+        Optional<Usuario> usuarioEncontrado = usuarios.values().stream()
+                .filter(usuario -> usuario.getCorreo().equals(correo))
+                .findFirst();
+
+        if(!usuarioEncontrado.isEmpty()){
+           return usuarioEncontrado.get();
+        }
+        return null;
+    }
+
+    public Usuario buscarUsuarioPorId(String Id) {
+        Optional<Usuario> usuarioEncontrado = usuarios.values().stream()
+                .filter(usuario -> usuario.getID().equals(Id))
+                .findFirst();
+
+        if(!usuarioEncontrado.isEmpty()){
+            return usuarioEncontrado.get();
+        }
+        return null;
+    }
+
 
 
 }
